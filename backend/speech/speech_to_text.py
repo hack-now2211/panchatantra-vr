@@ -6,7 +6,7 @@ import tempfile
 
 def listen():
 
-    duration = 5  # seconds
+    duration = 4  # shorter = better responsiveness
     sample_rate = 16000
 
     print("\n🎤 Listening... Speak now")
@@ -18,7 +18,6 @@ def listen():
 
     sd.wait()
 
-    # Save to temp file
     temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".wav")
     wav.write(temp_file.name, sample_rate, recording)
 
@@ -32,10 +31,6 @@ def listen():
         print("You (voice):", text)
         return text.lower()
 
-    except sr.UnknownValueError:
-        print("❌ Could not understand audio")
-        return ""
-
-    except sr.RequestError:
-        print("❌ API unavailable")
+    except:
+        print("❌ Could not understand")
         return ""
