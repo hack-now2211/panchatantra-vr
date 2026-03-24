@@ -14,12 +14,12 @@ while True:
 
     # 🔊 Narration (always spoken)
     speak(scene["narration"], "narrator")
-    time.sleep(1)  # 🔥 prevents audio drop
+    # time.sleep(1)  # 🔥 prevents audio drop
     # 🔊 Dialogues
     for d in scene["dialogues"]:
         print(f"{d['character']}: {d['text']}")
         speak(d["text"], d["character"])
-        time.sleep(0.4)  # 🔥 prevents audio drop
+        # time.sleep(0.4)  # 🔥 prevents audio drop
 
     # 🎤 Interaction loop
     while True:
